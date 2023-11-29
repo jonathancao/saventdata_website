@@ -617,6 +617,11 @@ section {
   animation: slide-down 0.5s ease-out;
 }
 
+.features .tab-pane img {
+    height: 400px;
+    width: auto;
+}
+
 .features .tab-content {
   text-align: right;
 }
