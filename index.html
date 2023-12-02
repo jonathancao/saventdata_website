@@ -62,15 +62,35 @@
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
           <div>
-            <h3>Detect business operations and data anomalies in minutes, not days</h3>
+            <h4>Power your business with our best anomaly detection solution</h3>
             <br>
-            <h3>Created by seasoned data veterans for executives, product owners, and data scientists</h3>
+            <h1>The Leading Business Operations Monitor Platform</h1>
             <br>
-            <h3>Elevate your business strategy and efficiency today</h3>
-            <!-- <a href="https://site.saventdata.com" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://hub.docker.com/r/saventdata/agent" class="btn-download scrollto">Download Agent</a> -->
+            <h4>Elevate your business strategy and efficiency today</h4>
           </div>
-        </div>
+          <br>
+          <div class="text-left">
+              <form action="https://formspree.io/f/xyyldzrz" method="POST"  class="pull-right" style="background-color:white; padding: 0px; border: 0px solid #e9ecee; border-radius: 4px";/>
+              <div class="form-row">
+                <div class="form-group col-md-6" id="emailInputContainer">
+                  <input type="email" class="form-control" name="_replyto" id="email" placeholder="Your work email" data-rule="email" data-msg="Please enter a valid email"/>
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6" id="nameInputContainer" style="display: none;">
+                  <input type="text" name="name" class="form-control"  id="name" placeholder="Full name"  data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group" id="subjectInputContainer" style="display: none;">
+                <textarea class="form-control" name="subject" rows="1" id="subject" placeholder="Subject" data-rule="required" data-msg="default subject"></textarea>
+              </div>
+              <div class="form-group" id="messageInputContainer" style="display: none;">
+                <textarea class="form-control" name="message" rows="2" id="message" placeholder="Message" data-rule="required" data-msg="Please write something for us"></textarea>
+              </div>
+              <input type="submit" class="btn btn-primary" id="sendInputContainer" value="Send" style="display: none;">
+              </form>
+            </div>
+          </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
           <img src="assets/img/front.png" class="img-fluid" alt="">
         </div>
@@ -208,50 +228,19 @@
           <h2>Contact Us</h2>
         </div>
         <div class="row">
-          <!-- <div class="col-lg-6 d-flex align-items-stretch" data-aos="fade-right"> -->
-          <div class="col-lg-6 d-flex align-items-stretch">
-            <div class="info">
-              <div class="email">
+          <div class="col-lg-12 d-flex align-items-stretch">
+            <div class="info d-flex">
+              <div class="col-lg-6 email">
                 <i class="icofont-envelope"></i>
                 <h4>Email</h4>
                 <p>info@saventdata.com</p>
               </div>
-
-              <div class="phone">
+              <div class=" col-lg-6 phone">
                 <i class="icofont-phone"></i>
                 <h4>Call</h4>
                 <p>+1 408 337-2706</p>
               </div>
             </div>
-          </div>
-          <!-- <div class="col-lg-6 mt-5 mt-lg-0 d-flex align-items-stretch test" data-aos="fade-left"> -->
-          <div class="col-lg-6 mt-5 mt-lg-0 d-flex align-items-stretch test">
-            <div class="text-left">
-              <form action="https://formspree.io/f/xyyldzrz" method="POST"  class="pull-right" style="background-color:white; padding: 50px; border: 2px solid #e9ecee; border-radius: 4px";/>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="_replyto" id="email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <textarea class="form-control" name="subject" rows="1" placeholder="Product Demo" data-rule="required" data-msg="default subject"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
-              </div>
-              <input type="submit" class="btn btn-primary" value="Send">
-              </form>
-            </div>
-          </div>
           </div>
         </div>
       </div>
@@ -295,6 +284,24 @@
       $('.tab-content .tab-pane').removeClass('active show');
       $(`#${tabId}`).addClass('active show');
     }
+  $(document).ready(function () {
+    $("#email").on("input", function () {
+      var emailValue = $(this).val();
+      if (emailValue.trim() !== "") {
+        $("#emailInputContainer").show();
+        $("#nameInputContainer").show();
+        $("#subjectInputContainer").show();
+        $("#messageInputContainer").show();
+        $("#sendInputContainer").show();
+      } else {
+        $("#nameInputContainer").hide();
+        $("#subjectInputContainer").hide();
+        $("#messageInputContainer").hide();
+        $("#sendInputContainer").hide();
+        $("#emailInputContainer").show();
+      }
+    });
+  });
   </script>
 
 </body>
