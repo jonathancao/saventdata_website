@@ -103,6 +103,10 @@
           <h2>Identify operational issues, such as a surge of customer complaints or inventory stockouts, in your business to mitigate potential losses</h2>
         </div>
         <div class="row">
+          <canvas id="anomalyChart"></canvas>
+        </div>
+        <br>
+        <div class="row">
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
             <div class="icon-box icon-box-pink">
               <div class="icon"><i class="bx bx-bar-chart"></i></div>
@@ -274,6 +278,7 @@
   <script src="assets/vendor/venobox/venobox.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
@@ -299,6 +304,78 @@
       }
     });
   });
+  // Sample data
+    const data = {
+      labels: ['1am', '2am', '3am', '4am', '5am', '6am', '7am'],
+      datasets: [
+        {
+          label: 'Revenue',
+          backgroundColor: 'rgba(52, 152, 219, 0.2)',
+          borderColor: '#3498db',
+          data: [
+            { x: '1am', y: 42782 },
+            { x: '2am', y: 35912 },
+            { x: '3am', y: 33630 },
+            { x: '4am', y: 41285 },
+            { x: '5am', y: 18517 },
+            { x: '6am', y: 43832 },
+            { x: '7am', y: 45344 },
+          ],
+        },
+        {
+          label: 'Anomaly Detected',
+          backgroundColor: '#e74c3c',
+          borderColor: '#e74c3c',
+          pointBackgroundColor: '#e74c3c',
+          pointRadius: 8,
+          pointHoverRadius: 10,
+          data: [
+            { x: '5am', y: 18517 },
+          ],
+        },
+      ],
+    };
+
+    // Get the chart canvas
+    const ctx = document.getElementById('anomalyChart').getContext('2d');
+
+    // Create the line chart
+    const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: data.labels,
+        datasets: data.datasets,
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              callback: function(value, index, values) {
+                return '$' + value;
+              }
+            }
+          }
+        },
+        elements: {
+          point: {
+            hitRadius: 20,
+            hoverRadius: 20,
+          }
+        },
+        tooltips: {
+          callbacks: {
+            label: (tooltipItem, chartData) => {
+              const datasetLabel = chartData.datasets[tooltipItem.datasetIndex].label || '';
+              const value = chartData.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+              return `${datasetLabel}: $${value}`;
+            }
+          }
+        }
+      },
+    });
   </script>
 
 </body>
