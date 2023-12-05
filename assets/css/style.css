@@ -598,7 +598,7 @@ section {
 }
 
 .features .nav-link:hover h4 {
-  color: #364146;
+  font-weight: 700;
 }
 
 .features .nav-link.active {
