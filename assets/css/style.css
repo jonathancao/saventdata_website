@@ -352,10 +352,10 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  background-image: url("../img/hero-bg.png");
+  background-image: url("../img/hero-bg-low.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right top;
+  background-size: cover;
+  background-position: center;
   margin-top: 70px;
   padding: 60px 0;
 }
@@ -365,12 +365,35 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  color: #364146;
+  color: #fff;
 }
 
 #hero h2 {
-  color: #576971;
+  color: #fff;
   margin-bottom: 30px;
+}
+
+#hero h4 {
+  color: #fff;
+}
+
+#hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #0c58e6;
+  background-color: black;
+}
+
+#hero img {
+  max-height: 40px;
+  margin: 0 10px; 
+  vertical-align: middle;
+}
+
+#hero #industry-logos {
+  padding-right: 0px;
+  margin-right: 0px;
+  color: #fff;
 }
 
 #hero .btn-get-started {
@@ -399,7 +422,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   background: #009cea;
 }
-
 
 #hero .btn-download {
   font-family: "Raleway", sans-serif;
