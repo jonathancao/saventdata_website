@@ -95,11 +95,10 @@
               <img src="assets/img/slack.png" alt="Slack Logo">
             </p>
           </div>
-     </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img">
-        </div>
       </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img">
+      </div>
+    </div>
     </div>
   </section>
 
@@ -321,6 +320,7 @@
     });
   });
   // Sample data
+    let delta = Math.floor(Math.random() * 1000) + 1;
     const data = {
       labels: ['1am', '2am', '3am', '4am', '5am', '6am', '7am'],
       datasets: [
@@ -329,13 +329,13 @@
           backgroundColor: 'rgba(52, 152, 219, 0.2)',
           borderColor: '#3498db',
           data: [
-            { x: '1am', y: 42782 },
-            { x: '2am', y: 35912 },
-            { x: '3am', y: 33630 },
-            { x: '4am', y: 41285 },
-            { x: '5am', y: 18517 },
-            { x: '6am', y: 43832 },
-            { x: '7am', y: 45344 },
+            { x: '1am', y: 42782+delta },
+            { x: '2am', y: 35912+delta },
+            { x: '3am', y: 33630+delta },
+            { x: '4am', y: 41285+delta },
+            { x: '5am', y: 18517+delta },
+            { x: '6am', y: 43832+delta },
+            { x: '7am', y: 45344+delta },
           ],
         },
         {
@@ -346,7 +346,7 @@
           pointRadius: 8,
           pointHoverRadius: 10,
           data: [
-            { x: '5am', y: 18517 },
+            { x: '5am', y: 18517+delta },
           ],
         },
       ],
