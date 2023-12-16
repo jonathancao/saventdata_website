@@ -382,6 +382,11 @@
             hoverRadius: 20,
           }
         },
+        plugins: {
+          legend: {
+            display: false, // Set this to false to hide the legend
+          }
+        },
         onHover: (event, chartElement) => {
           if (chartElement && chartElement.length > 0) {
               const tooltipItem = chartElement[0];
