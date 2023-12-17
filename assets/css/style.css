@@ -928,8 +928,8 @@ section {
 }
 .testimonials .testimonial-item .testimonial-img {
   width: 40%;
-  /*border-radius: 50%;*/
-  /*margin-top: -40px;*/
+  border-radius: 80%;
+  /* margin-top: -40px; */
   margin-left: auto;
   margin-right: auto;
   position: relative;
