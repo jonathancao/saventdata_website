@@ -382,6 +382,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 20px;
   color: #1188e5;
   background-color: black;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 #hero img {
