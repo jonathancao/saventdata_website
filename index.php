@@ -24,15 +24,15 @@
   <title>SaventData</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
-  <link href="assets/img/favicon.ico" rel="icon">
+  <link href="/wp-content/themes/saventdata_website/assets/img/favicon.ico" rel="icon">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="/wp-content/themes/saventdata_website/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/wp-content/themes/saventdata_website/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/wp-content/themes/saventdata_website/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/wp-content/themes/saventdata_website/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/wp-content/themes/saventdata_website/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/wp-content/themes/saventdata_website/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/wp-content/themes/saventdata_website/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
@@ -41,7 +41,7 @@
     <div class="container d-flex align-items-center">
       <div class="logo">
         <!-- <h1 class="text-light"><a href="index.html"><span>SaventData</span></a></h1> -->
-        <img src="assets/img/logo-new.png" class="img-fluid" alt="" style="max-height: 50px; width: auto;">
+        <img src="/wp-content/themes/saventdata_website/assets/img/logo-new.png" class="img-fluid" alt="" style="max-height: 50px; width: auto;">
       </div>
       <nav class="nav-menu d-none d-lg-block ml-auto mr-auto">
         <ul>
@@ -93,9 +93,9 @@
           <br>
           <div class="text-center" style="margin-left: 19%; margin-right: 19%">
             <p>USED BY EMERGING ENTERPRISES LIKE
-              <img src="assets/img/Bloomscape-Logo.png" alt="Bloomscape Logo">
-              <img src="assets/img/Neemans-Logo.jpg" alt="Neemans Logo">
-              <img src="assets/img/SummerSalt-Logo.png" alt="SummerSalt Logo">
+              <img src="/wp-content/themes/saventdata_website/assets/img/Bloomscape-Logo.png" alt="Bloomscape Logo">
+              <img src="/wp-content/themes/saventdata_website/assets/img/Neemans-Logo.jpg" alt="Neemans Logo">
+              <img src="/wp-content/themes/saventdata_website/assets/img/SummerSalt-Logo.png" alt="SummerSalt Logo">
             </p>
           </div>
       </div>
@@ -175,17 +175,17 @@
            <div class="tab-content">
              <div class="tab-pane active show" id="tab-1">
                <figure>
-                 <img src="assets/img/executive-new.png" alt="" class="img-fluid custom-img">
+                 <img src="/wp-content/themes/saventdata_website/assets/img/executive-new.png" alt="" class="img-fluid custom-img">
                </figure>
              </div>
              <div class="tab-pane" id="tab-2">
                <figure>
-                 <img src="assets/img/scientist.png" alt="" class="img-fluid custom-img">
+                 <img src="/wp-content/themes/saventdata_website/assets/img/scientist.png" alt="" class="img-fluid custom-img">
                </figure>
              </div>
              <div class="tab-pane" id="tab-3">
                <figure>
-                 <img src="assets/img/manager.png" alt="" class="img-fluid custom-img">
+                 <img src="/wp-content/themes/saventdata_website/assets/img/manager.png" alt="" class="img-fluid custom-img">
                </figure>
              </div>
            </div>
@@ -205,28 +205,28 @@
             <p class="centered">
               Go beyond churn: Identify when your sales funnels no longer perform as they once did.
             </p>
-            <img src="assets/img/market-intelligence-new.jpg" class="testimonial-img" alt="">
+            <img src="/wp-content/themes/saventdata_website/assets/img/market-intelligence-new.jpg" class="testimonial-img" alt="">
           </div>
           <div class="testimonial-item">
             <h4 class="title">Online Retail</h4>
             <p class="centered">
               Anticipate stock shortages before they occur. Receive notifications regarding issues related to overselling and inventory mismatches.
             </p>
-            <img src="assets/img/ecommerce-new.jpg" class="testimonial-img" alt="">
+            <img src="/wp-content/themes/saventdata_website/assets/img/ecommerce-new.jpg" class="testimonial-img" alt="">
           </div>
           <div class="testimonial-item">
             <h4 class="title">Digital E-commerce</h4>
             <p class="centered">
               Receive alerts when your traffic costs have experienced significant increase beyond the norm or have sharply declined, such as when ads are no longer being served.
             </p>
-            <img src="assets/img/game-refined.jpg" class="testimonial-img" alt="">
+            <img src="/wp-content/themes/saventdata_website/assets/img/game-refined.jpg" class="testimonial-img" alt="">
           </div>
           <div class="testimonial-item">
             <h4 class="title">Service Business</h4>
             <p class="centered">
               Recognize abrupt increases or decreases in indicators of future business, such as reservations.
             </p>
-            <img src="assets/img/online-entertainment-new.jpg" class="testimonial-img" alt="">
+            <img src="/wp-content/themes/saventdata_website/assets/img/online-entertainment-new.jpg" class="testimonial-img" alt="">
           </div>
         </div>
       </div>
@@ -285,18 +285,18 @@
   <a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/vendor/aos/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/js/main.js"></script>
   <script>
     function showTab(tabId) {
       $('.tab-content .tab-pane').removeClass('active show');
