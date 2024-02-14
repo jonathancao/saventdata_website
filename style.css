@@ -70,6 +70,8 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
+  align-items: center;
+  display: flex;
   height: 72px;
   transition: all 0.5s;
   z-index: 997;
@@ -103,6 +105,14 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 40px;
 }
 
+#header .btn {
+  background-color: #1a2038;
+  color:#fff;
+}
+#header .btn:hover {
+  background-color:  #1da9c2;
+  color:#fff;
+}
 .nexus-data.container {
   padding: 0;
 }
@@ -118,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 # Header Social Links
 --------------------------------------------------------------*/
 .header-social-links a {
-  color: #7b909a;
+  color: #00000;
   padding: 12px 0 12px 6px;
   display: inline-block;
   line-height: 1px;
@@ -126,7 +136,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-social-links a:hover {
-  color: #009cea;
+  color: #7b909a;
 }
 
 @media (max-width: 768px) {
@@ -154,7 +164,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a {
   display: block;
   position: relative;
-  color: #7b909a;
+  color:  #1a2038;
   padding: 10px 15px;
   transition: 0.3s;
   font-size: 15px;
@@ -162,7 +172,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #009cea;
+  color: #1da9c2;
   text-decoration: none;
 }
 
@@ -354,20 +364,38 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  background-image: url("/wp-content/themes/saventdata_website/assets/img/hero-bg-low.jpg");
+  height:600px;
+  /*background-image: url("/wp-content/themes/saventdata_website/assets/img/hero-bg-low.jpg");*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin-top: 70px;
-  padding: 60px 0;
+  padding: 120px 0 0px;
+  overflow:hidden;
+}
+
+#hero > .waves {
+  display: block;
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index:-1;
 }
 
 #hero h1 {
-  margin: 0 0 20px 0;
-  font-size: 48px;
+  margin-top:36px;
+  font-size: 42px;
   font-weight: 700;
   line-height: 56px;
   color: #fff;
+}
+#hero h1 span {
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(200deg,#58fff5 41%,#008bf5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
 }
 
 #hero h2 {
@@ -383,7 +411,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 18px;
   margin-bottom: 20px;
   color: #1da9c2;
-  background-color: black;
   padding-left: 6px;
   padding-right: 6px;
 }
@@ -398,60 +425,6 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 0px;
   margin-right: 0px;
   color: #fff;
-}
-
-#hero .btn-get-started {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 28px;
-  border-radius: 3px;
-  transition: 0.5s;
-  color: #fff;
-  background: #009cea;
-}
-
-#header .btn-get-started {
-  padding: 12px 28px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  letter-spacing: 1px;
-  display: inline-block;
-  border-radius: 3px;
-  transition: 0.5s;
-  color: #fff;
-  background: #009cea;
-}
-
-#hero .btn-download {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 12px 28px;
-  margin-left: 16px;
-  border-radius: 3px;
-  transition: 0.5s;
-  color: #fff;
-  background: #009cea;
-}
-
-#hero .btn-download:hover {
-  background: #008bd1;
-}
-
-#hero .btn-get-started:hover {
-  background: #008bd1;
-}
-
-#hero .btn-get-started:hover {
-  background: #008bd1;
 }
 
 #hero .hero-img {
@@ -476,6 +449,29 @@ h1, h2, h3, h4, h5, h6 {
   #hero h2 {
     font-size: 20px;
   }
+}
+
+/*--------------------------------------------------------------
+# Customers
+--------------------------------------------------------------*/
+#customers {
+  display: block;
+  position: relative;
+}
+#customers p {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin:0px;
+}
+#customers ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+#customers img {
+  max-height:40px;
+  margin-left:24px;
 }
 
 /*--------------------------------------------------------------

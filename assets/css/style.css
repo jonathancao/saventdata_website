@@ -101,6 +101,9 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 40px;
 }
 
+#header .btn {
+  background-color: #1a2038;
+}
 .nexus-data.container {
   padding: 0;
 }
@@ -359,6 +362,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 70px;
   padding: 60px 0;
 }
+#hero > .waves {
+  display: block;
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index:-1;
+}
 
 #hero h1 {
   margin: 0 0 20px 0;
@@ -390,66 +402,6 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 30px;
   margin: 18px 18px;
   vertical-align: middle;
-}
-
-#hero #industry-logos {
-  padding-right: 0px;
-  margin-right: 0px;
-  color: #fff;
-}
-
-#hero .btn-get-started {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 28px;
-  border-radius: 3px;
-  transition: 0.5s;
-  color: #fff;
-  background: #009cea;
-}
-
-#header .btn-get-started {
-  padding: 12px 28px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  letter-spacing: 1px;
-  display: inline-block;
-  border-radius: 3px;
-  transition: 0.5s;
-  color: #fff;
-  background: #009cea;
-}
-
-#hero .btn-download {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 12px 28px;
-  margin-left: 16px;
-  border-radius: 3px;
-  transition: 0.5s;
-  color: #fff;
-  background: #009cea;
-}
-
-#hero .btn-download:hover {
-  background: #008bd1;
-}
-
-#hero .btn-get-started:hover {
-  background: #008bd1;
-}
-
-#hero .btn-get-started:hover {
-  background: #008bd1;
 }
 
 #hero .hero-img {

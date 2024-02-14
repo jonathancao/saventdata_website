@@ -55,51 +55,90 @@
       <nav class="nav-menu d-none d-lg-block mr-0">
         <ul>
           <li><a href="https://hub.docker.com/r/saventdata/agent">Download</a>
-          <li><a href="https://site.saventdata.com">Login</a>
+          <li><a href="https://site.saventdata.com" class="btn btn-sm">Login</a>
         </ul>
       </nav>
     </div>
   </header>
 
   <section id="hero">
-    <div class="container">
-        <div class="pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center text-center">
-          <div>
-            <h4 style="color: #1da9c2;">Power your business with our best anomaly detection solution</h4>
-            <br>
-            <h1>The Comprehensive Business Operations Monitoring Platform</h1>
-            <br>
-            <h4>Elevate your business strategy and efficiency today</h4>
-          </div>
-          <br>
-          <div class="text-center" style="margin-left: 35%; margin-right: 35%">
-              <form action="https://formspree.io/f/xyyldzrz" method="POST"  class="pull-right" style="background-color:black; padding-left: 5%; padding-right: 5%; solid #e9ecee; border-radius: 4px";/>
-                <div class="form-group" id="emailInputContainer">
-                  <input type="email" class="form-control" name="_replyto" id="email" placeholder="Your work email" data-rule="email" data-msg="Please enter a valid email"/>
-                  <div class="validate"></div>
-                </div>
-                <div class="form-group" id="nameInputContainer" style="display: none;">
-                  <input type="text" name="name" class="form-control"  id="name" placeholder="Full name"  data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
-                  <div class="validate"></div>
-                </div>
-                <div class="form-group" id="companyInputContainer" style="display: none;">
-                  <input type="text" name="company" class="form-control" id="subject" placeholder="Company" data-rule="required" data-msg="Your company"/>
-                </div>
-                <div class="form-group" id="sendInputContainer" style="display: none;">
-                  <input type="submit" class="btn btn-primary" id="send" value="Get a demo" style="width: 100%;">
-                </div>
-              </form>
-          </div>
-          <br>
-          <div class="text-center" style="margin-left: 19%; margin-right: 19%">
-            <p>USED BY EMERGING ENTERPRISES LIKE
-              <img src="/wp-content/themes/saventdata_website/assets/img/Bloomscape-Logo.png" alt="Bloomscape Logo">
-              <img src="/wp-content/themes/saventdata_website/assets/img/Neemans-Logo.jpg" alt="Neemans Logo">
-              <img src="/wp-content/themes/saventdata_website/assets/img/SummerSalt-Logo.png" alt="SummerSalt Logo">
-            </p>
-          </div>
-      </div>
+
+    <div class="container d-flex align-items-center">
+
+        <div class="row pt-5 pt-lg-0 d-flex align-items-center">
+
+            <div class="col-md-7 col-sm-12 text-md-left text-center">
+
+                <h1>Adaptive <span>Anomaly Detection</span> Without the Complex Setup</h1>
+
+                <p class="lead">SaventData is an adaptive anomaly detection platform that helps data scientists and analysts proactively identify business operations issues, ensuring uninterrupted processes and improving customer satisfaction.</p>
+
+                <button class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">Schedule a demo &rarr;</button>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Schedule a demo</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <form action="https://formspree.io/f/xyyldzrz" method="POST"  class="pull-right"/>
+                                    <div class="form-group" id="emailInputContainer">
+                                        <input type="email" class="form-control" name="_replyto" id="email" placeholder="Your work email" data-rule="email" data-msg="Please enter a valid email"/>
+                                        <div class="validate"></div>
+                                    </div>
+                                    <div class="form-group" id="nameInputContainer">
+                                        <input type="text" name="name" class="form-control"  id="name" placeholder="Full name"  data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
+                                        <div class="validate"></div>
+                                    </div>
+                                    <div class="form-group" id="companyInputContainer">
+                                        <input type="text" name="company" class="form-control" id="subject" placeholder="Company" data-rule="required" data-msg="Your company"/>
+                                    </div>
+                                    <div class="form-group" id="sendInputContainer">
+                                        <input type="submit" class="btn btn-primary" id="send" value="Get a demo" style="width: 100%;">
+                                    </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="col-md-5 col-sm-12">
+
+            </div>
+
+        </div>
+
     </div>
+
+  </section>
+
+  <section id="customers">
+
+      <div class="container">
+
+          <div class="row">
+
+              <div class="col-sm-12 d-flex justify-content-center align-items-center">
+
+                  <p>Used by emerging enterprises like:</p>
+                  <img src="/wp-content/themes/saventdata_website/assets/img/Bloomscape-Logo.png" alt="Bloomscape Logo">
+                  <img src="/wp-content/themes/saventdata_website/assets/img/Neemans-Logo.jpg" alt="Neemans Logo">
+                  <img src="/wp-content/themes/saventdata_website/assets/img/SummerSalt-Logo.png" alt="SummerSalt Logo">
+
+              </div>
+
+          </div>
+
+      </div>
+
   </section>
 
   <main id="main">
@@ -294,6 +333,8 @@
   <script src="/wp-content/themes/saventdata_website/assets/vendor/venobox/venobox.min.js"></script>
   <script src="/wp-content/themes/saventdata_website/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="/wp-content/themes/saventdata_website/assets/vendor/aos/aos.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/js/three.js"></script>
+  <script src="/wp-content/themes/saventdata_website/assets/js/particles.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Template Main JS File -->
   <script src="/wp-content/themes/saventdata_website/assets/js/main.js"></script>
