@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Contact Us – SaventData</title>
+
+  <!-- Reuse main styles -->
+  <link rel="stylesheet" href="SaventData_files/style.min.css" />
+  <link rel="stylesheet" href="SaventData_files/style.css" />
+
+  <style>
+    body {
+      font-family: inherit;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .top-nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 0.667em 1.333em;
+      font-size: 1.125em;
+      background-color: #32373c;
+      color: #fff;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: none;
+    }
+
+    .back-button:hover {
+      background-color: #444a50;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .contact-info {
+      flex: 1 1 300px;
+    }
+
+    .map {
+      flex: 1 1 400px;
+    }
+
+    h1 {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .contact-label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-nav">
+    <a href="index.html" class="back-button">← Back to Home</a>
+  </div>
+
+  <div class="container">
+    <h1>Contact Us</h1>
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-label">Address:</span>
+        20660 Stevens Creek Blvd, Suite 107<br/>
+        Cupertino, CA 95014
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Email:</span>
+        <a href="mailto:info@saventdata.com">info@saventdata.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Phone:</span>
+        <a href="tel:+18059000785">(805) 900-0785</a>
+      </div>
+    </div>
+
+    <div class="map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.373115105187!2d-122.0341731!3d37.323365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5b66b5b8e6f%3A0x8a6b847d2e2c96c2!2s20660%20Stevens%20Creek%20Blvd%20%23107%2C%20Cupertino%2C%20CA%2095014!5e0!3m2!1sen!2sus!4v1717097600000" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</body>
+</html>
+
