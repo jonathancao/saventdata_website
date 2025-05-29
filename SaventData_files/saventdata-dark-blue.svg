@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="775px" height="213px" viewBox="0 0 775 213" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>saventdata-dark-blue</title>
+    <g id="saventdata-dark-blue" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon" transform="translate(-12.6529, -8.1726)">
+            <rect id="Rectangle" stroke="#1A2038" stroke-width="7" transform="translate(116.6726, 116.6726) rotate(45) translate(-116.6726, -116.6726)" x="37.6726189" y="37.6726189" width="158" height="158" rx="37"></rect>
+            <polygon id="Polygon" fill="#1A2038" points="180.172619 117.172619 168.672619 137.091203 145.672619 137.091203 134.172619 117.172619 145.672619 97.2540346 168.672619 97.2540346"></polygon>
+            <polygon id="Polygon" fill="#1A2038" points="99.1726189 117.172619 87.6726189 137.091203 64.6726189 137.091203 53.1726189 117.172619 64.6726189 97.2540346 87.6726189 97.2540346"></polygon>
+            <path d="M116.172619,58.2140708 L138.653381,71.1933448 L138.653381,97.151893 L116.172619,110.131167 L93.6918568,97.151893 L93.6918568,71.1933448 L116.172619,58.2140708 Z" id="Polygon" stroke="#1A2038" stroke-width="7" transform="translate(116.1726, 84.1726) rotate(90) translate(-116.1726, -84.1726)"></path>
+            <path d="M116.172619,125.214071 L138.653381,138.193345 L138.653381,164.151893 L116.172619,177.131167 L93.6918568,164.151893 L93.6918568,138.193345 L116.172619,125.214071 Z" id="Polygon" stroke="#1A2038" stroke-width="7" transform="translate(116.1726, 151.1726) rotate(90) translate(-116.1726, -151.1726)"></path>
+            <line x1="146.652934" y1="84.1726189" x2="192.652934" y2="84.1726189" id="Line" stroke="#1A2038" stroke-width="4" stroke-linecap="square"></line>
+            <line x1="97.6529339" y1="117.172619" x2="136.652934" y2="117.172619" id="Line" stroke="#1A2038" stroke-width="4" stroke-linecap="square"></line>
+            <line x1="40.6529339" y1="151.172619" x2="88.6529339" y2="151.172619" id="Line" stroke="#1A2038" stroke-width="4" stroke-linecap="square"></line>
+        </g>
+        <text id="SaventData" font-family="ArialMT, Arial" font-size="82" font-weight="normal" letter-spacing="4.23666667" fill="#1A2038">
+            <tspan x="230.567643" y="137">SaventData</tspan>
+        </text>
+    </g>
+</svg>
