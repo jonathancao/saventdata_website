@@ -889,31 +889,112 @@
     // Sample data
     let delta = Math.floor(Math.random() * 1000) + 1;
     const data = {
-        labels: ['1am', '2am', '3am', '4am', '5am', '6am', '7am'],
+        labels: ['1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am'],
         datasets: [
             {
-                label: 'Revenue',
+                label: 'Entry Tier',
                 backgroundColor: 'rgba(21, 184, 204, 0.2)',
-                borderColor: '#15b8cc', // Set border color to white
+                borderColor: '#3498db', // Set border color to white
                 data: [
                     { x: '1am', y: 42782 + delta },
-                    { x: '2am', y: 35912 + delta },
-                    { x: '3am', y: 33630 + delta },
-                    { x: '4am', y: 41285 + delta },
-                    { x: '5am', y: 18517 + delta },
-                    { x: '6am', y: 43832 + delta },
-                    { x: '7am', y: 45344 + delta },
+                    { x: '2am', y: 38912 + delta },
+                    { x: '3am', y: 44630 + delta },
+                    { x: '4am', y: 40285 + delta },
+                    { x: '5am', y: 48517 + delta },
+                    { x: '6am', y: 47832 + delta },
+                    { x: '7am', y: 46344 + delta },
+                    { x: '8am', y: null},
+                ],
+            },
+            {
+                label: 'Pro Tier',
+                backgroundColor: 'rgba(21, 184, 204, 0.2)',
+                borderColor: '#2ecc71', // Set border color to white
+                data: [
+                    { x: '1am', y: 82584 + delta },
+                    { x: '2am', y: 79942 + delta },
+                    { x: '3am', y: 85430 + delta },
+                    { x: '4am', y: 87533 + delta },
+                    { x: '5am', y: 84234 + delta },
+                    { x: '6am', y: 90373 + delta },
+                    { x: '7am', y: 89198 + delta },
+                    { x: '8am', y: null},
+                ],
+            },
+            {
+                label: 'Enterprise Tier',
+                backgroundColor: 'rgba(21, 184, 204, 0.2)',
+                borderColor: '#f39c12', // Set border color to white
+                data: [
+                    { x: '1am', y: 125335 + delta },
+                    { x: '2am', y: 121003 + delta },
+                    { x: '3am', y: 118002 + delta },
+                    { x: '4am', y: 131118 + delta },
+                    { x: '5am', y: 98522 + delta },
+                    { x: '6am', y: 131949 + delta },
+                    { x: '7am', y: 145343 + delta },
+                    { x: '8am', y: null},
+                ],
+            }, 
+            {
+                label: 'Entry Tier Forecast',
+                backgroundColor: 'rgba(21, 184, 204, 0.2)',
+                borderColor: '#3498db', // Set border color to white
+                borderDash: [8, 4],
+                data: [
+                    { x: '1am', y: null},
+                    { x: '2am', y: null },
+                    { x: '3am', y: null },
+                    { x: '4am', y: null },
+                    { x: '5am', y: null },
+                    { x: '6am', y: null },
+                    { x: '7am', y: 46344 + delta },
+                    { x: '8am', y: 47621 + delta },
+                ],
+            },
+            {
+                label: 'Pro Tier Forecast',
+                backgroundColor: 'rgba(21, 184, 204, 0.2)',
+                borderColor: '#e67e22', // Set border color to white
+                borderDash: [8, 4],
+                data: [
+                    { x: '1am', y: null},
+                    { x: '2am', y: null },
+                    { x: '3am', y: null },
+                    { x: '4am', y: null },
+                    { x: '5am', y: null },
+                    { x: '6am', y: null },
+                    { x: '7am', y: 89198 + delta },
+                    { x: '8am', y: 70277 + delta },
+                ],
+            },
+            {   
+                label: 'Enterprise Tier Forecast',
+                backgroundColor: 'rgba(21, 184, 204, 0.2)', 
+                borderColor: '#9b59b6', // Set border color to white
+                borderDash: [8, 4],
+                data: [
+                    { x: '1am', y: null},
+                    { x: '2am', y: null },
+                    { x: '3am', y: null },
+                    { x: '4am', y: null },
+                    { x: '5am', y: null },
+                    { x: '6am', y: null },
+                    { x: '7am', y: 145343 + delta },
+                    { x: '8am', y: 147126 + delta },
                 ],
             },
             {
                 label: 'Anomaly Detected',
+                showLine: false,
                 backgroundColor: '#e74c3c',
                 borderColor: '#FFFFFF', // Set border color to white for anomaly points
                 pointBackgroundColor: '#e74c3c',
                 pointRadius: 8,
                 pointHoverRadius: 10,
                 data: [
-                    { x: '5am', y: 18517 + delta },
+                    { x: '5am', y: 98522 + delta },
+                    { x: '8am', y: 70277 + delta },
                 ],
             },
         ],
@@ -964,6 +1045,25 @@
                     display: false,
                 },
                 tooltip: {
+                    callbacks: {
+                      label: function (context) {
+                      // Suppress tooltip for forecast data at '7am'
+                      const hiddenAt7amLabels = [
+                        'Entry Tier Forecast',
+                        'Pro Tier Forecast',
+                        'Enterprise Tier Forecast'
+                      ];
+                      const label = context.dataset.label;
+                      const x = context.label;
+
+                      if (x === '7am' && hiddenAt7amLabels.includes(label)) {
+                          return null; // Skip this tooltip
+                      }
+
+                      // Default tooltip
+                      return `${label}: ${context.formattedValue}`;
+                      },
+                    },
                     backgroundColor: '#FFFFFF', // White background for tooltips
                     titleColor: '#000000', // Dark text for titles
                     bodyColor: '#000000', // Dark text for body
