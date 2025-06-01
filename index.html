@@ -888,11 +888,15 @@
 
     // Sample data
     let delta = Math.floor(Math.random() * 1000) + 1;
+    let user_type = ['Entry Tier', 'Pro Tier', 'Enterprise Tier'];
+    let user_predict_type = ['Entry Tier Forecast', 'Pro Tier Forecast', 'Enterprise Tier Forecast'];
+    const forecast_anomaly = Math.floor(Math.random() * 3);
+    const past_anomaly = Math.floor(Math.random() * 3);
     const data = {
         labels: ['1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am'],
         datasets: [
             {
-                label: 'Entry Tier',
+                label: user_type[0],
                 backgroundColor: 'rgba(21, 184, 204, 0.2)',
                 borderColor: '#3498db', // Set border color to white
                 data: [
@@ -900,14 +904,14 @@
                     { x: '2am', y: 38912 + delta },
                     { x: '3am', y: 44630 + delta },
                     { x: '4am', y: 40285 + delta },
-                    { x: '5am', y: 48517 + delta },
+                    { x: '5am', y: (past_anomaly === 0) ? 28242 + delta : 48517 + delta },
                     { x: '6am', y: 47832 + delta },
                     { x: '7am', y: 46344 + delta },
                     { x: '8am', y: null},
                 ],
             },
             {
-                label: 'Pro Tier',
+                label: user_type[1],
                 backgroundColor: 'rgba(21, 184, 204, 0.2)',
                 borderColor: '#2ecc71', // Set border color to white
                 data: [
@@ -915,14 +919,14 @@
                     { x: '2am', y: 79942 + delta },
                     { x: '3am', y: 85430 + delta },
                     { x: '4am', y: 87533 + delta },
-                    { x: '5am', y: 84234 + delta },
+                    { x: '5am', y: (past_anomaly === 1) ? 65122 + delta : 84234 + delta },
                     { x: '6am', y: 90373 + delta },
                     { x: '7am', y: 89198 + delta },
                     { x: '8am', y: null},
                 ],
             },
             {
-                label: 'Enterprise Tier',
+                label: user_type[2],
                 backgroundColor: 'rgba(21, 184, 204, 0.2)',
                 borderColor: '#f39c12', // Set border color to white
                 data: [
@@ -930,14 +934,14 @@
                     { x: '2am', y: 121003 + delta },
                     { x: '3am', y: 118002 + delta },
                     { x: '4am', y: 131118 + delta },
-                    { x: '5am', y: 98522 + delta },
+                    { x: '5am', y: (past_anomaly === 2) ? 98524 + delta : 136887 + delta },
                     { x: '6am', y: 131949 + delta },
                     { x: '7am', y: 145343 + delta },
                     { x: '8am', y: null},
                 ],
             }, 
             {
-                label: 'Entry Tier Forecast',
+                label: user_predict_type[0],
                 backgroundColor: 'rgba(21, 184, 204, 0.2)',
                 borderColor: '#3498db', // Set border color to white
                 borderDash: [8, 4],
@@ -949,11 +953,11 @@
                     { x: '5am', y: null },
                     { x: '6am', y: null },
                     { x: '7am', y: 46344 + delta },
-                    { x: '8am', y: 47621 + delta },
+                    { x: '8am', y: (forecast_anomaly === 0) ? 28431 + delta : 47621 + delta },
                 ],
             },
             {
-                label: 'Pro Tier Forecast',
+                label: user_predict_type[1],
                 backgroundColor: 'rgba(21, 184, 204, 0.2)',
                 borderColor: '#e67e22', // Set border color to white
                 borderDash: [8, 4],
@@ -965,11 +969,11 @@
                     { x: '5am', y: null },
                     { x: '6am', y: null },
                     { x: '7am', y: 89198 + delta },
-                    { x: '8am', y: 70277 + delta },
+                    { x: '8am', y: (forecast_anomaly === 1) ? 63451 + delta : 90277 + delta },
                 ],
             },
             {   
-                label: 'Enterprise Tier Forecast',
+                label: user_predict_type[2],
                 backgroundColor: 'rgba(21, 184, 204, 0.2)', 
                 borderColor: '#9b59b6', // Set border color to white
                 borderDash: [8, 4],
@@ -981,7 +985,7 @@
                     { x: '5am', y: null },
                     { x: '6am', y: null },
                     { x: '7am', y: 145343 + delta },
-                    { x: '8am', y: 147126 + delta },
+                    { x: '8am', y: (forecast_anomaly === 2) ? 125737 + delta : 147126 + delta },
                 ],
             },
             {
@@ -993,8 +997,18 @@
                 pointRadius: 8,
                 pointHoverRadius: 10,
                 data: [
-                    { x: '5am', y: 98522 + delta },
-                    { x: '8am', y: 70277 + delta },
+                    { x: '5am', y: (past_anomaly === 0)
+                                   ? 28242 + delta
+                                   : (past_anomaly === 1)
+                                     ? 65122 + delta
+                                     : 98524 + delta
+                    },
+                    { x: '8am', y: (forecast_anomaly === 0)
+                                   ? 28431 + delta
+                                   : (forecast_anomaly === 1)
+                                     ? 63451 + delta
+                                     : 125737 + delta
+                    },
                 ],
             },
         ],
