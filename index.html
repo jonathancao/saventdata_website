@@ -891,7 +891,8 @@
     let user_type = ['Entry Tier', 'Pro Tier', 'Enterprise Tier'];
     let user_predict_type = ['Entry Tier Forecast', 'Pro Tier Forecast', 'Enterprise Tier Forecast'];
     const forecast_anomaly = Math.floor(Math.random() * 3);
-    const past_anomaly = Math.floor(Math.random() * 3);
+    const offset = Math.floor(Math.random() * 2) + 1;
+    const past_anomaly = (forecast_anomaly + offset) % 3;
     const data = {
         labels: ['1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am'],
         datasets: [
