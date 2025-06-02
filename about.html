@@ -17,7 +17,7 @@
       padding: 20px;
     }
 
-   .back-button {
+    .back-button {
       display: inline-block;
       padding: 0.667em 1.333em;
       font-size: 1.125em;
@@ -25,8 +25,7 @@
       color: #fff;
       border-radius: 9999px;
       text-decoration: none;
-      box-shadow: none;
-      box-shadow: 0 4px 6px rgba(0, 188, 212, 0.3); /* Optional: subtle glow */
+      box-shadow: 0 4px 6px rgba(0, 188, 212, 0.3);
       transition: background-color 0.3s ease;
     }
 
@@ -51,6 +50,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
+      flex-direction: column;
     }
 
     h1 {
@@ -59,6 +59,24 @@
       margin-bottom: 30px;
     }
 
+    .mission-section {
+      background-color: #e0f7fa; /* Light cyan background */
+      color: #00796b; /* Dark cyan text */
+      border-radius: 10px;
+      padding: 20px 30px;
+      box-shadow: 0 2px 6px rgba(0, 188, 212, 0.15);
+    }
+
+    .mission-section h1 {
+      color: #00796b; /* Dark cyan heading */
+    }
+
+    .mission-section p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
+    }
 
     @media (max-width: 768px) {
       .container {
@@ -75,29 +93,25 @@
   <div class="container">
     <h1>Our Story</h1>
     <p>At SaventData, we’re a team of seasoned data veterans with leadership experience from Uber, Meta, Twitter/X/xAI, LinkedIn, NetApp, and Stillfront. Having seen firsthand how many existing analytics solutions fall short in addressing practical business needs, we were inspired to build something better. Drawing on our experience scaling systems for over 50 million daily active users, we created SaventData to solve the real-world challenges we encountered ourselves. Our platform is built to deliver actionable insights, streamline workflows, and help organizations make smarter, faster decisions.</p>
-    <h1>Our Mission</h1>
-    <p> Our mission is to help businesses run better by turning complex operations data into clear, actionable insights.</p>
+
+    <section class="mission-section">
+      <h1>Our Mission</h1>
+      <p>Our mission is to help businesses run better by turning complex operations data into clear, actionable insights.</p>
+    </section>
   </div>
   <footer style="background-color: #0a0a23; color: white; padding: 40px 20px;">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start;">
-      <!-- Left side -->
       <div style="flex: 1 1 300px; min-width: 250px; margin-bottom: 20px;">
         <ul style="list-style: none; padding: 0; margin: 0;">
           <li style="margin-bottom: 10px;">© SaventData 2025</li>
-          <!--
-          <li><a href="https://saventdata.com/terms-and-conditions/" style="color: white; text-decoration: underline;">Terms and Conditions</a></li>
-          <li><a href="https://saventdata.com/privacy-policy/" style="color: white; text-decoration: underline;">Privacy Policy</a></li>
-          <li><a href="https://saventdata.com/data-protection/" style="color: white; text-decoration: underline;">Data Protection</a></li>
-          -->
         </ul>
       </div>
-
       <div style="flex: 1 1 300px; min-width: 250px; text-align: right;">
-           <ul>
-              <li class="d-none">© SaventData 2025</li>
-           </ul>
-       </div>
-     </div>
+        <ul>
+          <li class="d-none">© SaventData 2025</li>
+        </ul>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
