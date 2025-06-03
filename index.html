@@ -886,6 +886,21 @@
 <script src="./SaventData_files/chart.js"></script>
 <script>
 
+    function generateHourlyLabels(count = 8) {
+      const labels = [];
+      const now = new Date();
+      let currentHour = now.getHours(); // 0-23
+
+      for (let i = count - 1; i >= 0; i--) {
+        let hour = (currentHour - count + 2 + i + 24) % 24;
+        let period = hour >= 12 ? 'pm' : 'am';
+        let hour12 = hour % 12;
+        hour12 = hour12 === 0 ? 12 : hour12;
+        labels.push(`${hour12}${period}`);
+      }
+      return labels.reverse();
+    }
+
     // Sample data
     let delta = Math.floor(Math.random() * 1000) + 1;
     let user_type = ['Entry Tier', 'Pro Tier', 'Enterprise Tier'];
@@ -893,22 +908,23 @@
     const forecast_anomaly = Math.floor(Math.random() * 3);
     const offset = Math.floor(Math.random() * 2) + 1;
     const past_anomaly = (forecast_anomaly + offset) % 3;
+    const labels = generateHourlyLabels();
     const data = {
-        labels: ['1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am'],
+        labels: labels,
         datasets: [
             {
-                label: user_type[0],
+                labels: user_type[0],
                 backgroundColor: 'rgba(21, 184, 204, 0.2)',
                 borderColor: '#3498db', // Set border color to white
                 data: [
-                    { x: '1am', y: 42782 + delta },
-                    { x: '2am', y: 38912 + delta },
-                    { x: '3am', y: 44630 + delta },
-                    { x: '4am', y: 40285 + delta },
-                    { x: '5am', y: (past_anomaly === 0) ? 28242 + delta : 48517 + delta },
-                    { x: '6am', y: 47832 + delta },
-                    { x: '7am', y: 46344 + delta },
-                    { x: '8am', y: null},
+                    { x: labels[0], y: 42782 + delta },
+                    { x: labels[1], y: 38912 + delta },
+                    { x: labels[2], y: 44630 + delta },
+                    { x: labels[3], y: 40285 + delta },
+                    { x: labels[4], y: (past_anomaly === 0) ? 28242 + delta : 48517 + delta },
+                    { x: labels[5], y: 47832 + delta },
+                    { x: labels[6], y: 46344 + delta },
+                    { x: labels[7], y: null},
                 ],
             },
             {
@@ -916,14 +932,14 @@
                 backgroundColor: 'rgba(21, 184, 204, 0.2)',
                 borderColor: '#2ecc71', // Set border color to white
                 data: [
-                    { x: '1am', y: 82584 + delta },
-                    { x: '2am', y: 79942 + delta },
-                    { x: '3am', y: 85430 + delta },
-                    { x: '4am', y: 87533 + delta },
-                    { x: '5am', y: (past_anomaly === 1) ? 65122 + delta : 84234 + delta },
-                    { x: '6am', y: 90373 + delta },
-                    { x: '7am', y: 89198 + delta },
-                    { x: '8am', y: null},
+                    { x: labels[0], y: 82584 + delta },
+                    { x: labels[1], y: 79942 + delta },
+                    { x: labels[2], y: 85430 + delta },
+                    { x: labels[3], y: 87533 + delta },
+                    { x: labels[4], y: (past_anomaly === 1) ? 65122 + delta : 84234 + delta },
+                    { x: labels[5], y: 90373 + delta },
+                    { x: labels[6], y: 89198 + delta },
+                    { x: labels[7], y: null},
                 ],
             },
             {
@@ -931,14 +947,14 @@
                 backgroundColor: 'rgba(21, 184, 204, 0.2)',
                 borderColor: '#f39c12', // Set border color to white
                 data: [
-                    { x: '1am', y: 125335 + delta },
-                    { x: '2am', y: 121003 + delta },
-                    { x: '3am', y: 118002 + delta },
-                    { x: '4am', y: 131118 + delta },
-                    { x: '5am', y: (past_anomaly === 2) ? 98524 + delta : 136887 + delta },
-                    { x: '6am', y: 131949 + delta },
-                    { x: '7am', y: 145343 + delta },
-                    { x: '8am', y: null},
+                    { x: labels[0], y: 125335 + delta },
+                    { x: labels[1], y: 121003 + delta },
+                    { x: labels[2], y: 118002 + delta },
+                    { x: labels[3], y: 131118 + delta },
+                    { x: labels[4], y: (past_anomaly === 2) ? 98524 + delta : 136887 + delta },
+                    { x: labels[5], y: 131949 + delta },
+                    { x: labels[6], y: 145343 + delta },
+                    { x: labels[7], y: null},
                 ],
             }, 
             {
@@ -947,14 +963,14 @@
                 borderColor: '#3498db', // Set border color to white
                 borderDash: [8, 4],
                 data: [
-                    { x: '1am', y: null},
-                    { x: '2am', y: null },
-                    { x: '3am', y: null },
-                    { x: '4am', y: null },
-                    { x: '5am', y: null },
-                    { x: '6am', y: null },
-                    { x: '7am', y: 46344 + delta },
-                    { x: '8am', y: (forecast_anomaly === 0) ? 28431 + delta : 47621 + delta },
+                    { x: labels[0], y: null},
+                    { x: labels[1], y: null },
+                    { x: labels[2], y: null },
+                    { x: labels[3], y: null },
+                    { x: labels[4], y: null },
+                    { x: labels[5], y: null },
+                    { x: labels[6], y: 46344 + delta },
+                    { x: labels[7], y: (forecast_anomaly === 0) ? 28431 + delta : 47621 + delta },
                 ],
             },
             {
@@ -963,14 +979,14 @@
                 borderColor: '#e67e22', // Set border color to white
                 borderDash: [8, 4],
                 data: [
-                    { x: '1am', y: null},
-                    { x: '2am', y: null },
-                    { x: '3am', y: null },
-                    { x: '4am', y: null },
-                    { x: '5am', y: null },
-                    { x: '6am', y: null },
-                    { x: '7am', y: 89198 + delta },
-                    { x: '8am', y: (forecast_anomaly === 1) ? 63451 + delta : 90277 + delta },
+                    { x: labels[0], y: null},
+                    { x: labels[1], y: null },
+                    { x: labels[2], y: null },
+                    { x: labels[3], y: null },
+                    { x: labels[4], y: null },
+                    { x: labels[5], y: null },
+                    { x: labels[6], y: 89198 + delta },
+                    { x: labels[7], y: (forecast_anomaly === 1) ? 63451 + delta : 90277 + delta },
                 ],
             },
             {   
@@ -979,14 +995,14 @@
                 borderColor: '#9b59b6', // Set border color to white
                 borderDash: [8, 4],
                 data: [
-                    { x: '1am', y: null},
-                    { x: '2am', y: null },
-                    { x: '3am', y: null },
-                    { x: '4am', y: null },
-                    { x: '5am', y: null },
-                    { x: '6am', y: null },
-                    { x: '7am', y: 145343 + delta },
-                    { x: '8am', y: (forecast_anomaly === 2) ? 125737 + delta : 147126 + delta },
+                    { x: labels[0], y: null},
+                    { x: labels[1], y: null },
+                    { x: labels[2], y: null },
+                    { x: labels[3], y: null },
+                    { x: labels[4], y: null },
+                    { x: labels[5], y: null },
+                    { x: labels[6], y: 145343 + delta },
+                    { x: labels[7], y: (forecast_anomaly === 2) ? 125737 + delta : 147126 + delta },
                 ],
             },
             {
@@ -998,13 +1014,13 @@
                 pointRadius: 8,
                 pointHoverRadius: 10,
                 data: [
-                    { x: '5am', y: (past_anomaly === 0)
+                    { x: labels[4], y: (past_anomaly === 0)
                                    ? 28242 + delta
                                    : (past_anomaly === 1)
                                      ? 65122 + delta
                                      : 98524 + delta
                     },
-                    { x: '8am', y: (forecast_anomaly === 0)
+                    { x: labels[7], y: (forecast_anomaly === 0)
                                    ? 28431 + delta
                                    : (forecast_anomaly === 1)
                                      ? 63451 + delta
@@ -1071,7 +1087,7 @@
                       const label = context.dataset.label;
                       const x = context.label;
 
-                      if (x === '7am' && hiddenAt7amLabels.includes(label)) {
+                      if (x === labels[7] && hiddenAt7amLabels.includes(label)) {
                           return null; // Skip this tooltip
                       }
 
