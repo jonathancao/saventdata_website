@@ -913,7 +913,7 @@
         labels: labels,
         datasets: [
             {
-                labels: user_type[0],
+                label: user_type[0],
                 backgroundColor: 'rgba(21, 184, 204, 0.2)',
                 borderColor: '#3498db', // Set border color to white
                 data: [
@@ -1078,16 +1078,10 @@
                 tooltip: {
                     callbacks: {
                       label: function (context) {
-                      // Suppress tooltip for forecast data at '7am'
-                      const hiddenAt7amLabels = [
-                        'Entry Tier Forecast',
-                        'Pro Tier Forecast',
-                        'Enterprise Tier Forecast'
-                      ];
                       const label = context.dataset.label;
                       const x = context.label;
 
-                      if (x === labels[7] && hiddenAt7amLabels.includes(label)) {
+                      if (x === labels[6] && user_predict_type.includes(label)) {
                           return null; // Skip this tooltip
                       }
 
