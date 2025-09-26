@@ -19,7 +19,7 @@
 }
 
 .integration:hover span {
-    color: #1de1c7 !important; /* accent teal/green for visibility */
+    color: #000000 !important; /* black for visibility */
 }
 
 /* Optional: slight glow around icon */
