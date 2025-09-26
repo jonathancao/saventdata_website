@@ -1,0 +1,33 @@
+/* Hover effect for integration icons */
+.integration {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    text-align: center !important;
+}
+
+.integration span {
+    display: block !important;
+    margin-top: 8px !important;
+    color: #ffffff !important; /* normal label color */
+    transition: color 0.3s ease !important;
+}
+
+.integration:hover {
+    transform: translateY(-6px) scale(1.05) !important; /* subtle lift + zoom */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important; /* soft shadow */
+}
+
+.integration:hover span {
+    color: #1de1c7 !important; /* accent teal/green for visibility */
+}
+
+/* Optional: slight glow around icon */
+.integration:hover::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -5px !important; left: -5px !important; right: -5px !important; bottom: -5px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 0 10px rgba(29, 225, 199, 0.5) !important;
+    pointer-events: none !important;
+}
