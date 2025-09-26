@@ -20,6 +20,8 @@
 
 .integration:hover span {
     color: #000000 !important; /* black for visibility */
+    font-size: 14px !important;
+    font-weight: 400 !important;
 }
 
 /* Optional: slight glow around icon */
