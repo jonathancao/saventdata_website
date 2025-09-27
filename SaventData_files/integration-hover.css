@@ -1,3 +1,21 @@
+/* SaventData logo above heading */
+.integration-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    background-image: url('../assets/img/logo-blue.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.integration-logo:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(29, 225, 199, 0.3);
+}
+
 /* Hover effect for integration icons */
 .integration {
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
