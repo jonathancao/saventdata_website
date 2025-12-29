@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <!-- saved from url=(0023)https://saventdata.com/ -->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" style="height: 100%;"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -557,10 +557,10 @@
 
                 <div class="col-12 col-md-5 mb-5">
 
-                    <span class="eyebrow color--teal mb-3">Deep Analytics</span>
+                    <span class="eyebrow color--teal mb-3">Real-Time Behavioral Intelligence</span>
 
-                    <h2>Unlock actionable insights with intelligent predictive modeling</h2>
-                    <p>SaventData leverages agentic intelligence and predictive modeling to segment users, forecast trends, and identify key business drivers. Go beyond countless manual, rule-based personalization—our autonomous analytics drives growth and engagement automatically.</p>
+                    <h2>Understand intent and act instantly</h2>
+                    <p>SaventData uses self-learning behavioral models to analyze live user signals, predict outcomes, and trigger personalized actions in real time—without manual rules or constant re-tuning.</p>
 
                 </div>
 
@@ -1005,231 +1005,135 @@
 
 </main>
 <script src="./SaventData_files/chart.js"></script>
+<canvas id="anomalyChart" height="300"></canvas>
+<canvas id="anomalyChart" height="300"></canvas>
+<script src="./SaventData_files/chart.js"></script>
 <script>
+const labels = [];
+const engagement = [];
+const intent = [];
+const activation = [];
+const maxPoints = 8;
+const intentDelay = 2; // seconds
+const actionDelay = 2; // seconds
+const threshold = 72; // adjusted for new range
 
-    function generateHourlyLabels(count = 8) {
-      const labels = [];
-      const now = new Date();
-      let currentHour = now.getHours(); // 0-23
+let pendingIntent = [];
+let pendingActivation = [];
 
-      for (let i = count - 1; i >= 0; i--) {
-        let hour = (currentHour - count + 2 + i + 24) % 24;
-        let period = hour >= 12 ? 'pm' : 'am';
-        let hour12 = hour % 12;
-        hour12 = hour12 === 0 ? 12 : hour12;
-        labels.push(`${hour12}${period}`);
+// Initialize chart
+const ctx = document.getElementById('anomalyChart').getContext('2d');
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [
+      {
+        label: 'User Behavior',
+        data: engagement,
+        borderColor: '#3498db',
+        backgroundColor: 'rgba(52, 152, 219, 0.15)',
+        tension: 0.4,
+        fill: true,
+      },
+      {
+        label: 'Detected Intent',
+        data: intent,
+        borderColor: '#2ecc71',
+        backgroundColor: 'rgba(46, 204, 113, 0.15)',
+        tension: 0.4,
+        fill: true,
+      },
+      {
+        label: 'App Activation',
+        data: activation,
+        showLine: false,
+        pointRadius: 10,
+        pointHoverRadius: 12,
+        pointBackgroundColor: '#e74c3c',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
       }
-      return labels.reverse();
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: { duration: 500 },
+    scales: {
+      y: { 
+        min: 0, 
+        max: 100, 
+        ticks: { color: '#FFF', callback: v => v + '%' }, 
+        grid: { color: 'rgba(255,255,255,0.15)' } 
+      },
+      x: { ticks: { color: '#FFF' }, grid: { color: 'rgba(255,255,255,0.15)' } }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#FFF',
+        titleColor: '#000',
+        bodyColor: '#000',
+        callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.formattedValue}` }
+      }
     }
+  }
+});
 
-    // Sample data
-    let delta = Math.floor(Math.random() * 1000) + 1;
-    let user_type = ['Entry Tier', 'Pro Tier', 'Enterprise Tier'];
-    let user_predict_type = ['Entry Tier Forecast', 'Pro Tier Forecast', 'Enterprise Tier Forecast'];
-    const forecast_anomaly = Math.floor(Math.random() * 3);
-    const offset = Math.floor(Math.random() * 2) + 1;
-    const past_anomaly = (forecast_anomaly + offset) % 3;
-    const labels = generateHourlyLabels();
-    const data = {
-        labels: labels,
-        datasets: [
-            {
-                label: user_type[0],
-                backgroundColor: 'rgba(21, 184, 204, 0.2)',
-                borderColor: '#3498db', // Set border color to white
-                data: [
-                    { x: labels[0], y: 42782 + delta },
-                    { x: labels[1], y: 38912 + delta },
-                    { x: labels[2], y: 44630 + delta },
-                    { x: labels[3], y: 40285 + delta },
-                    { x: labels[4], y: (past_anomaly === 0) ? 28242 + delta : 48517 + delta },
-                    { x: labels[5], y: 47832 + delta },
-                    { x: labels[6], y: 46344 + delta },
-                    { x: labels[7], y: null},
-                ],
-            },
-            {
-                label: user_type[1],
-                backgroundColor: 'rgba(21, 184, 204, 0.2)',
-                borderColor: '#2ecc71', // Set border color to white
-                data: [
-                    { x: labels[0], y: 82584 + delta },
-                    { x: labels[1], y: 79942 + delta },
-                    { x: labels[2], y: 85430 + delta },
-                    { x: labels[3], y: 87533 + delta },
-                    { x: labels[4], y: (past_anomaly === 1) ? 65122 + delta : 84234 + delta },
-                    { x: labels[5], y: 90373 + delta },
-                    { x: labels[6], y: 89198 + delta },
-                    { x: labels[7], y: null},
-                ],
-            },
-            {
-                label: user_type[2],
-                backgroundColor: 'rgba(21, 184, 204, 0.2)',
-                borderColor: '#f39c12', // Set border color to white
-                data: [
-                    { x: labels[0], y: 125335 + delta },
-                    { x: labels[1], y: 121003 + delta },
-                    { x: labels[2], y: 118002 + delta },
-                    { x: labels[3], y: 131118 + delta },
-                    { x: labels[4], y: (past_anomaly === 2) ? 98524 + delta : 136887 + delta },
-                    { x: labels[5], y: 131949 + delta },
-                    { x: labels[6], y: 145343 + delta },
-                    { x: labels[7], y: null},
-                ],
-            }, 
-            {
-                label: user_predict_type[0],
-                backgroundColor: 'rgba(21, 184, 204, 0.2)',
-                borderColor: '#3498db', // Set border color to white
-                borderDash: [8, 4],
-                data: [
-                    { x: labels[0], y: null},
-                    { x: labels[1], y: null },
-                    { x: labels[2], y: null },
-                    { x: labels[3], y: null },
-                    { x: labels[4], y: null },
-                    { x: labels[5], y: null },
-                    { x: labels[6], y: 46344 + delta },
-                    { x: labels[7], y: (forecast_anomaly === 0) ? 28431 + delta : 47621 + delta },
-                ],
-            },
-            {
-                label: user_predict_type[1],
-                backgroundColor: 'rgba(21, 184, 204, 0.2)',
-                borderColor: '#e67e22', // Set border color to white
-                borderDash: [8, 4],
-                data: [
-                    { x: labels[0], y: null},
-                    { x: labels[1], y: null },
-                    { x: labels[2], y: null },
-                    { x: labels[3], y: null },
-                    { x: labels[4], y: null },
-                    { x: labels[5], y: null },
-                    { x: labels[6], y: 89198 + delta },
-                    { x: labels[7], y: (forecast_anomaly === 1) ? 63451 + delta : 90277 + delta },
-                ],
-            },
-            {   
-                label: user_predict_type[2],
-                backgroundColor: 'rgba(21, 184, 204, 0.2)', 
-                borderColor: '#9b59b6', // Set border color to white
-                borderDash: [8, 4],
-                data: [
-                    { x: labels[0], y: null},
-                    { x: labels[1], y: null },
-                    { x: labels[2], y: null },
-                    { x: labels[3], y: null },
-                    { x: labels[4], y: null },
-                    { x: labels[5], y: null },
-                    { x: labels[6], y: 145343 + delta },
-                    { x: labels[7], y: (forecast_anomaly === 2) ? 125737 + delta : 147126 + delta },
-                ],
-            },
-            {
-                label: 'Anomaly Detected',
-                showLine: false,
-                backgroundColor: '#e74c3c',
-                borderColor: '#FFFFFF', // Set border color to white for anomaly points
-                pointBackgroundColor: '#e74c3c',
-                pointRadius: 8,
-                pointHoverRadius: 10,
-                data: [
-                    { x: labels[4], y: (past_anomaly === 0)
-                                   ? 28242 + delta
-                                   : (past_anomaly === 1)
-                                     ? 65122 + delta
-                                     : 98524 + delta
-                    },
-                    { x: labels[7], y: (forecast_anomaly === 0)
-                                   ? 28431 + delta
-                                   : (forecast_anomaly === 1)
-                                     ? 63451 + delta
-                                     : 125737 + delta
-                    },
-                ],
-            },
-        ],
-    };
+// Function to simulate one cycle
+function addCycle() {
+  const now = new Date();
+  const label = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
-    // Get the chart canvas
-    const ctx = document.getElementById('anomalyChart').getContext('2d');
+  // Step 1: user behavior change (40–80)
+  const newBehavior = Math.floor(Math.random() * 40) + 40;
+  engagement.push(newBehavior);
+  labels.push(label);
 
-    // Create the line chart
-    const myChart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.25)', // White with opacity
-                        borderColor: 'rgba(255, 255, 255, 0.25)' // White border with opacity
-                    },
-                    ticks: {
-                        color: '#FFFFFF', // Set text color to white
-                        callback: function(value, index, values) {
-                            return '$' + value;
-                        }
-                    }
-                },
-                x: {
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.25)', // White with opacity
-                        borderColor: 'rgba(255, 255, 255, 0.25)' // White border with opacity
-                    },
-                    ticks: {
-                        color: '#FFFFFF' // Set text color to white
-                    }
-                }
-            },
-            elements: {
-                point: {
-                    hitRadius: 20,
-                    hoverRadius: 20,
-                }
-            },
-            plugins: {
-                legend: {
-                    display: false,
-                },
-                tooltip: {
-                    callbacks: {
-                      label: function (context) {
-                      const label = context.dataset.label;
-                      const x = context.label;
+  // Schedule detected intent update
+  pendingIntent.push(newBehavior);
 
-                      if (x === labels[6] && user_predict_type.includes(label)) {
-                          return null; // Skip this tooltip
-                      }
+  if (labels.length > maxPoints) {
+    labels.shift();
+    engagement.shift();
+    intent.shift();
+    activation.shift();
+  }
 
-                      // Default tooltip
-                      return `${label}: ${context.formattedValue}`;
-                      },
-                    },
-                    backgroundColor: '#FFFFFF', // White background for tooltips
-                    titleColor: '#000000', // Dark text for titles
-                    bodyColor: '#000000', // Dark text for body
-                    borderColor: '#000000', // Border color
-                    borderWidth: 1,
-                }
-            },
-            onHover: (event, chartElement) => {
-                if (chartElement && chartElement.length > 0) {
-                    const tooltipItem = chartElement[0];
-                    jQuery("#feature1Container").delay(0000).fadeIn(1000);
-                    jQuery("#feature2Container").delay(1000).fadeIn(1000);
-                    jQuery("#feature3Container").delay(2000).fadeIn(1000);
-                    jQuery("#feature4Container").delay(3000).fadeIn(1000);
-                }
-            },
-        },
-    });
+  chart.update();
 
+  // Step 2: update detected intent after delay
+  setTimeout(() => {
+    const behaviorForIntent = pendingIntent.shift();
+    const newIntent = Math.min(100, Math.floor(behaviorForIntent * 1.1));
+    intent.push(newIntent);
+
+    // Schedule potential activation
+    pendingActivation.push(newIntent > threshold ? newIntent : null);
+
+    if (intent.length > maxPoints) intent.shift();
+    chart.update();
+
+    // Step 3: app action after actionDelay
+    setTimeout(() => {
+      const act = pendingActivation.shift();
+      activation.push(act); // red dot shows here
+
+      if (activation.length > maxPoints) activation.shift();
+      chart.update();
+
+      // Start next cycle
+      setTimeout(addCycle, 2000);
+    }, actionDelay * 1000);
+
+  }, intentDelay * 1000);
+}
+
+// Start simulation
+addCycle();
 </script>
+
 
 <footer id="footer">
 
