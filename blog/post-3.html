@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Game Data to Live Player Intelligence | SaventData</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#000;
+--surface:#0c0c0d;
+--text:#fff;
+--muted:#b8b8b8;
+--line:#1f1f22;
+--accent:#7c8cff;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Inter,Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.7;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.wrap{
+max-width:980px;
+margin:0 auto;
+padding:0 28px;
+}
+
+.topbar{
+border-bottom:1px solid var(--line);
+background:rgba(0,0,0,.88);
+backdrop-filter:blur(8px);
+position:sticky;
+top:0;
+z-index:10;
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+}
+
+.brand{
+font-weight:800;
+letter-spacing:.08em;
+font-size:14px;
+}
+
+.menu a{
+margin-left:22px;
+color:#d1d1d1;
+font-size:14px;
+}
+
+.hero{
+padding:84px 0 42px;
+}
+
+.tag{
+display:inline-block;
+border:1px solid #2b2b30;
+border-radius:999px;
+padding:8px 12px;
+color:#d7d7d7;
+font-size:12px;
+letter-spacing:.08em;
+text-transform:uppercase;
+}
+
+.hero h1{
+font-size:62px;
+line-height:1.02;
+letter-spacing:-.04em;
+margin:20px 0 18px;
+max-width:920px;
+}
+
+.hero .sub{
+font-size:22px;
+color:var(--muted);
+max-width:780px;
+}
+
+.meta{
+margin-top:20px;
+color:#8f8f95;
+font-size:14px;
+}
+
+.divider{
+height:1px;
+background:linear-gradient(90deg,transparent,#2b2b30,transparent);
+margin:34px 0 0;
+}
+
+.content{
+padding:58px 0 100px;
+}
+
+.content p{
+font-size:20px;
+color:#d8d8d8;
+margin:0 0 22px;
+}
+
+.content h2{
+font-size:42px;
+line-height:1.08;
+margin:64px 0 18px;
+letter-spacing:-.03em;
+}
+
+.content h3{
+font-size:28px;
+margin:34px 0 10px;
+}
+
+.content ul{
+padding-left:24px;
+margin:10px 0 28px;
+}
+
+.content li{
+font-size:19px;
+color:#d8d8d8;
+margin:8px 0;
+}
+
+.quote{
+margin:40px 0;
+padding:30px;
+border-left:3px solid #fff;
+background:#0b0b0d;
+color:#f0f0f0;
+font-size:24px;
+line-height:1.5;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin:40px 0;
+}
+
+.stat{
+padding:28px;
+border:1px solid var(--line);
+border-radius:20px;
+background:linear-gradient(180deg,#0e0e10,#090909);
+}
+
+.stat .num{
+font-size:34px;
+font-weight:800;
+}
+
+.stat .label{
+color:#b8b8b8;
+margin-top:8px;
+font-size:16px;
+}
+
+.highlight{
+color:var(--accent);
+font-weight:700;
+}
+
+.cta{
+margin-top:74px;
+padding:42px;
+border-radius:26px;
+background:#fff;
+color:#000;
+}
+
+.cta h3{
+margin:0 0 12px;
+font-size:34px;
+line-height:1.08;
+}
+
+.cta p{
+color:#333;
+font-size:18px;
+}
+
+.btn{
+display:inline-block;
+margin-top:12px;
+background:#000;
+color:#fff;
+padding:14px 22px;
+border-radius:999px;
+font-weight:700;
+}
+
+.footer{
+padding:28px 0;
+border-top:1px solid var(--line);
+color:#7f7f86;
+font-size:14px;
+}
+
+img.heroimg{
+width:100%;
+border-radius:18px;
+margin:34px 0;
+border:1px solid var(--line);
+}
+
+@media(max-width:900px){
+.hero h1{font-size:44px}
+.stats{grid-template-columns:1fr}
+.content p,.content li{font-size:18px}
+}
+
+@media(max-width:600px){
+.hero h1{font-size:36px}
+.hero .sub{font-size:18px}
+.content h2{font-size:32px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER (same as original) -->
+<header class="topbar">
+<div class="wrap nav">
+<a class="brand" href="/">SAVENTDATA</a>
+<nav class="menu">
+<a href="demo.html">Schedule a Demo</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero wrap">
+<span class="tag">Game Industry Intelligence</span>
+
+<h1>From Game Data to Live Player Intelligence</h1>
+
+<p class="sub">
+Most games already generate enough data to understand player behavior in real time — yet most studios still operate with delayed insights that fail to influence gameplay while it matters.
+</p>
+
+<div class="meta">SaventData • 7 min read</div>
+<div class="divider"></div>
+
+</section>
+
+<main class="content wrap">
+
+<p>
+Modern live-service games are among the most data-rich systems ever built. Every second of gameplay produces signals about player intent, skill, frustration, engagement, and monetization readiness.
+</p>
+
+<p>
+Yet despite this abundance of data, most studios still struggle to turn it into meaningful, real-time decisions inside the game itself.
+</p>
+
+<div class="quote">
+The problem is not data availability — it is the lack of a system that turns gameplay signals into immediate action.
+</div>
+
+<h2>The Three Layers of the Problem</h2>
+
+<p>
+Game studios typically operate across three disconnected layers of intelligence:
+</p>
+
+<ul>
+<li><b>Layer 1 — Data Exists:</b> telemetry, events, sessions, and gameplay logs are fully captured</li>
+<li><b>Layer 2 — Insights Are Delayed:</b> dashboards and reports explain behavior after it happens</li>
+<li><b>Layer 3 — No Real-Time Action:</b> gameplay systems rarely adapt dynamically to player intent</li>
+</ul>
+
+<p>
+This structure creates a critical gap between what players are doing and how the game responds.
+</p>
+
+<h2>What Players Are Already Telling You</h2>
+
+<p>
+Players constantly express intent through behavior — often without saying a word.
+</p>
+
+<p>
+A drop in session frequency, repeated failure in a level, sudden matchmaking frustration, or reduced engagement with core mechanics all indicate evolving sentiment.
+</p>
+
+<p>
+At the same time, accelerated progression, repeated item interactions, or increased session depth can signal high-value monetization or retention opportunities.
+</p>
+
+<img class="heroimg" src="sandbox:/mnt/data/FreshToHome x SaventData — Personalization Alignment  (March 30, 2026).png" alt="Game Intelligence Diagram">
+
+<p>
+These signals already exist inside your game. The question is whether they are being used fast enough to change outcomes.
+</p>
+
+<h2>Why Traditional Game Analytics Breaks at Scale</h2>
+
+<p>
+As games scale, so does complexity. Millions of players generate millions of behavioral permutations, making it impossible for manual analysis or static dashboards to keep up.
+</p>
+
+<p>
+Most analytics systems are optimized for retrospective understanding, not real-time intervention.
+</p>
+
+<p>
+This leads to predictable failure patterns:
+</p>
+
+<ul>
+<li>Churn is detected after players have already left</li>
+<li>Monetization insights arrive after purchase intent fades</li>
+<li>Balancing issues are fixed after community frustration grows</li>
+<li>Live-ops decisions rely on intuition instead of signals</li>
+</ul>
+
+<h2>From Passive Analytics to Active Gameplay Intelligence</h2>
+
+<p>
+The next evolution of game analytics is not more dashboards — it is systems that actively participate in shaping gameplay.
+</p>
+
+<p>
+This means continuously interpreting behavioral signals and triggering responses inside the game in real time.
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<div class="num">↑ Retention</div>
+<div class="label">Detect churn risk before players disengage</div>
+</div>
+
+<div class="stat">
+<div class="num">↑ Engagement</div>
+<div class="label">Adapt gameplay experiences dynamically</div>
+</div>
+
+<div class="stat">
+<div class="num">↑ Revenue</div>
+<div class="label">Trigger monetization at the right intent moment</div>
+</div>
+
+</div>
+
+<h2>What Real-Time Game Intelligence Enables</h2>
+
+<p>
+When gameplay data becomes operational, studios unlock entirely new capabilities:
+</p>
+
+<ul>
+<li>Dynamic difficulty adjustment based on frustration signals</li>
+<li>Personalized progression paths for different player archetypes</li>
+<li>Real-time churn prevention interventions</li>
+<li>Context-aware live-ops events</li>
+<li>Predictive matchmaking and balancing optimization</li>
+</ul>
+
+<p>
+Instead of reacting to player behavior, the game begins to respond to it as it happens.
+</p>
+
+<h2>The Competitive Edge Is Closing the Loop</h2>
+
+<p>
+The most successful live-service games will not be those with the most content or the most players.
+</p>
+
+<p>
+They will be the ones that close the loop between player behavior and game response faster than anyone else.
+</p>
+
+<p>
+That is where SaventData helps studios evolve — turning fragmented gameplay signals into real-time intelligence that improves retention, engagement, and monetization inside the live game environment.
+</p>
+
+<div class="cta">
+
+<h3>See Your Game the Way Your Players Experience It</h3>
+
+<p>
+Discover how SaventData transforms raw gameplay data into real-time decisions that shape player experience.
+</p>
+
+<a class="btn" href="https://www.saventdata.com">Visit SaventData</a>
+
+</div>
+
+</main>
+
+<!-- FOOTER (same as original) -->
+<footer class="footer">
+<div class="wrap">© SaventData</div>
+</footer>
+
+</body>
+</html>
