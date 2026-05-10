@@ -238,19 +238,19 @@ SaventData helps teams move beyond analytics into execution — transforming use
 
     <div class="post">
       <a href="blog/post-3.html">From Gameplay Data to Live Intelligence</a>
-      <div class="meta">May 2026 · 7 min read</div>
+       <div class="meta" data-month-offset="0">May 2026 · 7 min read</div>
       <div class="excerpt">Game studios sit on massive volumes of player behavior data, but the real opportunity lies in transforming those signals into real-time intelligence that drives retention, engagement, and monetization during gameplay.</div>
     </div>
 
     <div class="post">
       <a href="blog/post-2.html">Data Without Insight = Lost Revenue</a>
-      <div class="meta">April 2026 · 6 min read</div>
+      <div class="meta" data-month-offset="1">April 2026 · 6 min read</div>
       <div class="excerpt">E-commerce brands are not losing revenue because they lack data — they are losing it because customer intent signals are not interpreted and acted on fast enough.</div>
     </div>
 
     <div class="post">
       <a href="blog/post-1.html">Actionable Insights Drive Growth</a>
-      <div class="meta">March 2026 · 5 min read</div>
+        <div class="meta" data-month-offset="2">March 2026 · 5 min read</div>
       <div class="excerpt">Turning early user behavior signals into real-time actions that drive growth, retention, and conversion.</div>
     </div>
 
@@ -270,6 +270,28 @@ SaventData helps teams move beyond analytics into execution — transforming use
     </div>
   </div>
 </footer>
+
+<script>
+  const monthNames = [
+    "January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+  ];
+
+  const now = new Date();
+
+  document.querySelectorAll(".meta").forEach(el => {
+    const offset = parseInt(el.dataset.monthOffset || "0", 10);
+
+    const date = new Date(now.getFullYear(), now.getMonth() - offset, 1);
+
+    const monthYear = `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+
+    // keep existing read time if present
+    const readTime = el.textContent.split("·")[1]?.trim() || "7 min read";
+
+    el.textContent = `${monthYear} · ${readTime}`;
+  });
+</script>
 
 </body>
 </html>
