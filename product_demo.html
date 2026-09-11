@@ -6,6 +6,10 @@
 
     <title>SaventData Cockpit</title>
 
+    <link rel="stylesheet" href="SaventData_files/style.min.css" />
+    <link rel="stylesheet" href="SaventData_files/style.css" />
+    <link href="assets/img/favicon.ico" rel="icon">
+
     <style>
         * {
             box-sizing: border-box;
@@ -22,14 +26,14 @@
             color: #fff;
         }
 
-        .page {
+        .demo-page {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         /* Header */
-        .header {
+        .demo-header {
             height: 64px;
             display: flex;
             align-items: center;
@@ -37,14 +41,16 @@
             border-bottom: 1px solid #222;
         }
 
-        .logo {
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
+        .demo-brand {
+            display: flex;
+            align-items: center;
+            height: 100%;
         }
 
-        .logo span {
-            color: #00BFA6;
+        .demo-brand img {
+            display: block;
+            width: auto;
+            height: 48px;
         }
 
         /* Intro */
@@ -123,12 +129,15 @@
 
 <body>
 
-<div class="page">
+<div class="demo-page">
 
-    <header class="header">
-        <div class="logo">
-            Savent<span>Data</span>
-        </div>
+    <header class="demo-header">
+        <a href="https://www.saventdata.com/" class="demo-brand">
+            <img
+                src="./SaventData_files/saventdata-white.svg"
+                alt="SaventData"
+            >
+        </a>
     </header>
 
     <section class="intro">
